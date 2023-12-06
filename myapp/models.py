@@ -6,7 +6,7 @@ class Offer:
 
     def __init__(self) -> None:
         # Specify the path to JSON file
-        path = 'input.json'
+        path = '../input.json'
 
         # Open the file and load the JSON data
         with open(path, 'r') as file:

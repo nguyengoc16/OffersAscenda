@@ -14,11 +14,11 @@ def render_template(template_name='index.html', context={}):
 
 def home(environ):
   return render_template(
-      template_name='templates/index.html', 
+      template_name='../templates/index.html', 
       context={}).encode("utf-8")
 
 def not_found(environ, path):
-  return render_template(template_name='templates/404.html', context={"path": path}).encode("utf-8")
+  return render_template(template_name='../templates/404.html', context={"path": path}).encode("utf-8")
 
 
 def check_date(checkin_date, offer_dict):
@@ -96,7 +96,7 @@ def return_offer(environ,offer_dict):
     offer_dict = two_closest_offer(offer_dict)
 
     #output json file
-    path = 'output.json'
+    path = '../output.json'
     with open(path, 'w') as json_file:
       json.dump(offer_dict, json_file, indent=2)
     json_response = json.dumps(offer_dict,indent=2)
