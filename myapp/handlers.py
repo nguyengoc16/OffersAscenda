@@ -1,6 +1,6 @@
 from typing import Any
 from urllib import parse
-from datetime import datetime
+from datetime import datetime, timedelta
 import json
 import heapq
 
@@ -32,7 +32,7 @@ def check_date(checkin_date, offer_dict):
     valid_date = datetime.strptime(offer.get('valid_to', ''), '%Y-%m-%d')
 
     # Check if the offer is valid
-    if valid_date > checkin_date:
+    if valid_date >= checkin_date + timedelta(days=5):
       valid_offers.append(offer)
   offer_dict['offers'] = valid_offers
   return offer_dict
